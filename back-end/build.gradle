@@ -1,0 +1,76 @@
+ext {
+    project_jdk = '1.8'
+    jar_name = 'werewolfweb'
+    description = 'Wereolf web App back-end'
+    vers = '0.1.0-SNAPSHOT'
+    sourceEncoding = 'UTF-8'
+}
+
+buildscript {
+    apply from: 'dependency.gradle'
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+//        maven { url "http://114.215.178.115:8081/nexus/content/groups/public/" }
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath(libraries."spring-boot")
+    }
+}
+
+group 'com.asiainfo.werewolfweb'
+version vers
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+jar {
+    baseName = jar_name
+}
+
+
+repositories {
+    mavenLocal()
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+//        maven { url "http://114.215.178.115:8081/nexus/content/groups/public/" }
+    mavenCentral()
+    jcenter()
+}
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = sourceEncoding
+
+
+dependencies {
+
+    compile(
+            libraries."fastjson",
+            libraries."lombok",
+            libraries."javax.inject",
+            libraries."spring-boot-starter-hateoas",
+            libraries."spring-boot-configuration-processor",
+            libraries."spring-boot-starter-actuator",
+            libraries."mongodb-driver",
+            libraries."spring-boot-starter-data-mongodb",
+            libraries."spring-data-mongodb"
+    )
+
+    runtime(
+    )
+
+    testCompile(
+            libraries."spring-boot-starter-test"
+    )
+}
+
+compileJava.dependsOn(processResources)
+
+task createJavaProject << {
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+
+
+
+

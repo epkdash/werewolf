@@ -1,0 +1,56 @@
+<section id="wrapper">
+    <header>
+        <div class="inner">
+            <h2>神秘的羊皮卷</h2>
+            <p>这里记录着你在村庄里的遭遇，揭露了你真实的面孔，请躲在角落里独自翻阅。</p>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <div class="inner">
+
+            <section class="features">
+                <article>
+                    <h3 class="major">游戏总体状况</h3>
+                    <p>参与游戏：<font color="#ff4500">{{playerStats?.playCount}}</font>&nbsp;局</p>
+                    <p>获得胜利的局数：<font color="#ff4500">{{playerStats?.playWinCount}}</font>&nbsp;局</p>
+                    <p *ngIf="playerStats?.playWinCount||playerStats?.playCount">胜率：<font color="#ff4500">{{computeWinRate(playerStats)}}</font></p>
+                </article>
+                <article>
+                    <h3 class="major">预言家游戏状况</h3>
+                    <p>作为预言家活到最后并且获得胜利的局数：<font color="#ff4500">{{playerStats?.seerWinCount}}</font>&nbsp;局</p>
+                    <p>作为预言家第一天就被杀死的局数：<font color="#ff4500">{{playerStats?.seerFisrNightKilledCount}}</font>&nbsp;局</p>
+                </article>
+                <article>
+                    <h3 class="major">最喜欢伤害你的玩家</h3>
+                    <p><font color="#ff4500">{{playerStats?.topHurtPlayerCount?.playerName}}</font>&nbsp;伤害你&nbsp;<font color="#ff4500">{{playerStats?.topHurtPlayerCount?.total}}</font>&nbsp;次</p>
+                </article>
+                <article>
+                    <h3 class="major">普通村民游戏状况</h3>
+                    <p>作为普通村民被杀死的局数：<font color="#ff4500">{{playerStats?.villagerKilledCount}}</font>&nbsp;局</p>
+                </article>
+                <article>
+                    <h3 class="major">女巫游戏状况</h3>
+                    <p>女巫使用毒药局数：<font color="#ff4500">{{playerStats?.witchPoisonCount}}</font>&nbsp;局。正确使用毒药局数：<font color="#ff4500">{{playerStats?.witchVaildPoisonCount}}</font>&nbsp;局。</p>
+                    <p>女巫使用解药局数：<font color="#ff4500">{{playerStats?.witchReviveCount}}</font>&nbsp;局。正确使用解药局数：<font color="#ff4500">{{playerStats?.witchVaildReviveCount}}</font>&nbsp;局。</p>
+                </article>
+                <article>
+                    <h3 class="major">被虐一览</h3>
+                    <div *ngFor="let map of playerStats?.hurtedGroupByPlayerAndPatternCount">
+                        被&nbsp;<font color="#ff4500">{{map?.initiativeName}}</font>&nbsp;{{map?.actionName}}&nbsp;<font color="#ff4500">{{map?.total}}</font>&nbsp;次
+                    </div>
+                </article>
+                <article>
+                    <h3 class="major">各角色游戏情况</h3>
+                    <div *ngFor="let rolePlay of playerStats?.rolePlayGroupCount">
+                        {{rolePlay?.roleTransName}}：<font color="#ff4500">{{rolePlay?.roleCount}}</font>&nbsp;局，赢得<font color="#ff4500">{{rolePlay?.roleWinCount}}</font>局胜利
+                    </div>
+                </article>
+            </section>
+
+        </div>
+    </div>
+
+</section>
+
+

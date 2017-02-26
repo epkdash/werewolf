@@ -1,0 +1,49 @@
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <h1><a href="#bulletin">村庄布告栏</a></h1>
+        <nav>
+            <div [class.login-hide]="!isLogin">
+                {{playerInfo?.name}}&nbsp;&nbsp;
+                <span *ngIf="!isResume" (click)="gotoResume(); $event.stopPropagation()">私人日记</span>
+                <span *ngIf="isResume" (click)="goBakeHome(); $event.stopPropagation()">返回</span>
+            </div>
+            <div [class.login-hide]="isLogin" (click)="openLoginDialog(); ">
+                进入村庄
+            </div>
+        </nav>
+    </header>
+    <!--<input type="password" [(ngModel)]="passport" placeholder="passport">-->
+
+    <!-- Menu -->
+    <nav id="menu" >
+        <div class="inner">
+            <h2>护照编号</h2>
+            <font style="color: red">{{errorMsg}}</font>
+            <div>
+                <div class="ipt-box-nick">
+                    <input #pp type="tel" class="ipt-real-nick" [(ngModel)]="passport"
+                           placeholder="passport" maxlength="6"
+                           (input)="passportInput(pp);" onfocus="console.log('aaaaaa')">
+                    <div class="ipts-box-nick">
+                        <div class="ipt-fake-box">
+                            <input type="password">
+                            <input type="password">
+                            <input type="password">
+                            <input type="password">
+                            <input type="password">
+                            <input type="password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="close">Close</div>
+        </div>
+    </nav>
+
+    <router-outlet></router-outlet>
+
+
+</div>

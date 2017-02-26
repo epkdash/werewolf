@@ -1,0 +1,41 @@
+<section id="footer">
+    <div class="inner">
+            <h2 class="major">在这里写下你想说的话</h2>
+            <form method="post" action="#">
+                <div class="field">
+                    <label>撰写人：{{playerInfo?.name}}</label>
+                </div>
+                <div class="field">
+                    <textarea #message name="message" id="message" rows="4"></textarea>
+                </div>
+                <ul class="actions">
+                    <li><input type="button" (click)="addMessageBoard(message)" value="把这张小广告一巴拍在电线杆上"/></li>
+                </ul>
+            </form>
+            <p></p>
+            <h3 class="major">村口路边的电线杆</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>发起人</th>
+                        <th>内容</th>
+                        <th>日期</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let messageBoard of messageBoards">
+                        <td>{{messageBoard.name}}</td>
+                        <td>{{messageBoard.message}}</td>
+                        <td>{{messageBoard.inDate| date:'short'}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        <ul class="copyright">
+            <li>Create By C.Huang</li>
+        </ul>
+    </div>
+</section>

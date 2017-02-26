@@ -1,0 +1,142 @@
+<!-- Banner -->
+<section id="banner">
+    <div class="inner">
+        <div class="logo"><span class="icon fa-diamond"></span></div>
+        <h2>{{mainTale?.storyTitle}}</h2>
+        <p>{{mainTale?.tale}}</p>
+        <p style="color: orangered">{{mainTale?.recordStatus}}</p>
+    </div>
+</section>
+
+<!-- Wrapper -->
+<section id="wrapper">
+
+    <!-- One -->
+    <section id="one" class="wrapper spotlight style1">
+        <div class="inner">
+            <a href="#" class="image"><img src="../../images/pic01.jpg" alt=""/></a>
+            <div class="content">
+                <h2 class="major" style="color: #ffe34c">最佳狼人：{{wolfTopOnePlayer?.playerName}}</h2>
+                <p>心路历程&nbsp;&nbsp;{{topWolfBroad}}</p>
+                <div *ngIf="playerInfo?.playerId == wolfTopOnePlayer?.playerId">
+                    <input #wolfTopOne type="text">
+                    <ul class="actions">
+                        <button (click)="addWolfTopOneBoard(wolfTopOne)" class="button">留言</button>
+                    </ul>
+                </div>
+                <ul class="contact">
+                    <li class="fa-eye">{{topBroad?.topWolfTale}}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Two -->
+    <section id="two" class="wrapper alt spotlight style2">
+        <div class="inner">
+            <a href="#" class="image"><img src="../../images/pic02.jpg" alt=""/></a>
+            <div class="content">
+                <h2 class="major" style="color: #ffe34c">最佳女巫：{{witchTopOnePlayer?.playerName}}</h2>
+                <p>心路历程&nbsp;&nbsp;{{topWitchBroad}}</p>
+                <div *ngIf="playerInfo?.playerId == witchTopOnePlayer?.playerId">
+                    <input #witchTopOne type="text">
+                    <ul class="actions">
+                        <button (click)="addWitchTopOneBoard(witchTopOne)" class="button">留言</button>
+                    </ul>
+                </div>
+                <ul class="contact">
+                    <li class="fa-eye">{{topBroad?.topWitchTale}}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three -->
+    <section id="three" class="wrapper spotlight style3">
+        <div class="inner">
+            <a href="#" class="image"><img src="../../images/pic03.jpg" alt=""/></a>
+            <div class="content">
+                <h2 class="major" style="color: #ffe34c">最佳预言家：{{seerTopOnePlayer?.playerName}}</h2>
+                <p>心路历程&nbsp;&nbsp;{{topSeerBroad}}</p>
+                <div *ngIf="playerInfo?.playerId == seerTopOnePlayer?.playerId">
+                    <input #seerTopOne type="text">
+                    <ul class="actions">
+                        <button (click)="addSeerTopOneBoard(seerTopOne)" class="button">留言</button>
+                    </ul>
+                </div>
+                <ul class="contact">
+                    <li class="fa-eye">{{topBroad?.topSeerTale}}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Four -->
+    <section id="four" class="wrapper alt style1">
+        <div class="inner">
+            <h2 class="major">{{honorary?.storyTitle2}}</h2>
+            <p>{{tale2}}</p>
+            <section class="features">
+                <article>
+                    <div class="image"><img src="../../images/haoren.jpg" alt=""/></div>
+                    <h3 class="major">{{honorary?.oneTitle}}</h3>
+                    <h4>夺得该称号的玩家：{{honoraryPlayer?.villagerKilledTopOne?.playerName}}</h4>
+                    <p>{{honorary?.oneTale}}</p>
+                    <ul class="contact">
+                        <li class="fa-eye">{{honorary?.oneExplain}}</li>
+                    </ul>
+                </article>
+                <article>
+                    <div class="image"><img src="../../images/jianvwu.jpg" alt=""/></div>
+                    <h3 class="major">{{honorary?.twoTitle}}</h3>
+                    <h4>夺得该称号的玩家：{{honoraryPlayer?.witchKillTopOne?.playerName}}</h4>
+                    <p>{{honorary?.twoTale}}</p>
+                    <ul class="contact">
+                        <li class="fa-eye">{{honorary?.twoExplain}}</li>
+                    </ul>
+                </article>
+                <article>
+                    <a href="#" class="image"><img src="../../images/sideyuyanjia.jpg" alt=""/></a>
+                    <h3 class="major">{{honorary?.threeTitle}}</h3>
+                    <h4>夺得该称号的玩家：{{honoraryPlayer?.seerFisrNightKilledTopOne?.playerName}}</h4>
+                    <p>{{honorary?.threeTale}}</p>
+                    <ul class="contact">
+                        <li class="fa-eye">{{honorary?.threeExplain}}</li>
+                    </ul>
+                </article>
+                <article>
+                    <a href="#" class="image"><img src="../../images/yezhu.jpg" alt=""/></a>
+                    <h3 class="major">{{honorary?.fourTitle}}</h3>
+                    <h4>夺得该称号的玩家：{{honoraryPlayer?.huntedTopOne?.playerName}}</h4>
+                    <p>{{honorary?.fourTale}}</p>
+                    <ul class="contact">
+                        <li class="fa-eye">{{honorary?.fourExplain}}</li>
+                    </ul>
+                </article>
+                <article>
+                    <a href="#" class="image"><img src="../../images/ai.jpg" alt=""/></a>
+                    <h3 class="major">{{honorary?.fiveTitle}}</h3>
+                    <h4>夺得该称号的玩家：{{honoraryPlayer?.loverPlayerTopOne?.playerAName}} &nbsp;与&nbsp; {{honoraryPlayer?.loverPlayerTopOne?.playerBName}}</h4>
+                    <p>{{honorary?.fiveTale}}</p>
+                    <ul class="contact">
+                        <li class="fa-eye">{{honorary?.fiveExplain}}</li>
+                    </ul>
+                </article>
+                <article>
+                    <a href="#" class="image"><img src="../../images/huxiangshanghai.jpg" alt=""/></a>
+                    <h3 class="major">{{honorary?.sixTitle}}</h3>
+                    <h4>夺得该称号的玩家：{{honoraryPlayer?.hurtPlayerTopOne?.hurtPlayerName}}</h4>
+                    <p>{{honorary?.sixTale}}</p>
+                    <ul class="contact">
+                        <li class="fa-eye">{{honorary?.sixExplain}}</li>
+                    </ul>
+                </article>
+            </section>
+        </div>
+    </section>
+
+</section>
+<message-broad></message-broad>
+
+
+

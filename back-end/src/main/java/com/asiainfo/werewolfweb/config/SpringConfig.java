@@ -1,0 +1,30 @@
+package com.asiainfo.werewolfweb.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+/**
+ * @author : huangchen
+ * @description :
+ * @date : 2016/12/6
+ */
+@Configuration
+public class SpringConfig
+{
+    @Bean
+    public WebMvcConfigurer corsConfigurer()
+    {
+        return new WebMvcConfigurerAdapter()
+        {
+            @Override
+            public void addCorsMappings(CorsRegistry registry)
+            {
+                registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "PUT",
+                        "DELETE", "POST", "PATCH", "OPTIONS");
+            }
+        };
+    }
+}
